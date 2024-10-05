@@ -3,11 +3,33 @@
 
 #include "myfunctions.hpp"
 
-TEST(MyFunctions, Sum)
+using ::testing::IsEmpty;
+using ::testing::ElementsAre;
+
+TEST(MakeVector, Empty)
+{
+  std::vector<int> v;
+  EXPECT_THAT(v, IsEmpty());
+}
+
+TEST(MakeVector, Basic)
+{
+  std::vector<int> v = make_vector(1, 3);
+  EXPECT_THAT(v, ElementsAre(1, 1, 1));
+}
+
+TEST(Sum, Basic)
 {
   int x = 1;
   int y = 2;
   EXPECT_EQ(sum(x, y), 3);
+}
+
+TEST(Sum, Negative)
+{
+  int x = 1;
+  int y = -2;
+  EXPECT_EQ(sum(x, y), -1);
 }
 
 int main(int argc, char *argv[])
