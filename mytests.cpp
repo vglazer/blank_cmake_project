@@ -5,6 +5,7 @@
 
 using ::testing::IsEmpty;
 using ::testing::ElementsAre;
+using ::testing::ElementsAreArray;
 
 TEST(MakeVector, Empty)
 {
@@ -16,6 +17,8 @@ TEST(MakeVector, Basic)
 {
   std::vector<int> v = make_vector(1, 3);
   EXPECT_THAT(v, ElementsAre(1, 1, 1));
+  EXPECT_THAT(v, ElementsAreArray({1, 1, 1}));
+
 }
 
 TEST(Sum, Basic)
