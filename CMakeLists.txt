@@ -5,11 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_executable(
-    main 
-    main.cpp myfunctions.cpp
-)
-
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -17,7 +12,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+include(CTest)
 enable_testing()
+
+add_executable(
+    main
+    main.cpp myfunctions.cpp
+)
 
 add_executable(
     mytests 
